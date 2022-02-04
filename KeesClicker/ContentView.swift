@@ -1,16 +1,23 @@
-//
-//  ContentView.swift
-//  KeesClicker
-//
-//  Created by Kees Stuij on 04/02/2022.
-//
-
 import SwiftUI
 
 struct ContentView: View {
+    @State var timesClicked = 0
     var body: some View {
-        Text("Hello, world!")
-            .padding()
+        VStack {
+            Text("Kees, world!")
+            Button(
+                action: {
+                    print("Click cookie!")
+                    timesClicked = timesClicked + 1
+                },
+                label: {
+                    Image("cookie")
+                        .resizable(resizingMode: .stretch)
+                        .aspectRatio(contentMode: .fit)
+                }
+            )
+            Text("You clicked the cookie  \(timesClicked)")
+        }
     }
 }
 
